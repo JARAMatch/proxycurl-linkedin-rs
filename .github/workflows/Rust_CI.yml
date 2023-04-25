@@ -29,7 +29,7 @@ jobs:
     name: Clippy with profile.dev
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v3.5.2
       - uses: rui314/setup-mold@v1
       - run: rustup install stable
       - run: rustup update
@@ -51,7 +51,7 @@ jobs:
     name: Clippy with profile.release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v3.5.2
       - uses: rui314/setup-mold@v1
       - run: rustup install stable
       - run: rustup update
@@ -74,7 +74,7 @@ jobs:
     name: Test Suite and Initialize profile.test Cache
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v3.5.2
       - uses: rui314/setup-mold@v1
       - run: rustup install stable
       - run: rustup update
@@ -95,7 +95,7 @@ jobs:
     name: Rustfmt
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v3.5.2
       - run: rustup install stable
       - run: rustup update
       - run: rustup component add rustfmt
