@@ -1,0 +1,29 @@
+[package]
+name = "proxycurl-linkedin-rs"
+version = "0.0.0"
+edition = "2021"
+categories = ["api-bindings", "web-programming", "asynchronous"]
+authors = ["Anthony Rubick"]
+rust-version = "1.68"
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/JARAMatch/proxycurl-linkedin-rs"
+repository = "https://github.com/JARAMatch/proxycurl-linkedin-rs"
+
+[features]
+default = ["rustls"]
+# Enable rustls for TLS support
+rustls = ["reqwest/rustls-tls-native-roots"]
+# Enable native-tls for TLS support
+native-tls = ["reqwest/native-tls"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+futures = "0.3.26"
+reqwest = { version = "0.11.14", features = ["json"] }
+reqwest-eventsource = "0.4.0"
+derive_builder = "0.12.0"
+serde = { version = "1.0.152", features = ["derive", "rc"] }
+serde_json = "1.0.93"
+thiserror = "1.0.38"
