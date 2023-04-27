@@ -1,0 +1,14 @@
+# AffiliatedCompany
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | Option<**String**> |  | [optional]
+**link** | Option<**String**> |  | [optional]
+**industry** | Option<**String**> |  | [optional]
+**location** | Option<**String**> |  | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
