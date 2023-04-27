@@ -4,6 +4,7 @@ version = "0.0.0"
 edition = "2021"
 categories = ["api-bindings", "web-programming", "asynchronous"]
 authors = ["Anthony Rubick"]
+description = "A Rust client for the Proxycurl LinkedIn API"
 rust-version = "1.68"
 license = "MIT"
 readme = "README.md"
