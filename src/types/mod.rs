@@ -1,3 +1,5 @@
 mod person_profile;
 pub use person_profile::*;
-pub mod types;
+#[allow(clippy::module_inception)]
+mod types;
+pub use types::*;

@@ -11,19 +11,17 @@ use super::types::{
 };
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
+#[derive(Default)]
 pub enum FallbackToCache {
     #[serde(rename = "on-error")]
     /// (default value) - Fallback to reading the profile from cache if an error arises.
+    #[default]
     OnError,
     #[serde(rename = "never")]
     /// Do not ever read profile from cache.
     Never,
 }
-impl Default for FallbackToCache {
-    fn default() -> Self {
-        FallbackToCache::OnError
-    }
-}
+
 impl Display for FallbackToCache {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {

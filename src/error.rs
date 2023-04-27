@@ -35,7 +35,7 @@ pub(crate) struct WrappedError {
 pub(crate) fn map_deserialization_error(e: serde_json::Error, bytes: &[u8]) -> ProxyCurlError {
     tracing::error!(
         "failed deserialization of: {}",
-        String::from_utf8_lossy(bytes.as_ref())
+        String::from_utf8_lossy(bytes)
     );
     ProxyCurlError::JSONDeserialize(e)
 }
