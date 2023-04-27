@@ -1,7 +1,9 @@
 use serde::de::DeserializeOwned;
 
-use crate::{apis::*, error::{ProxyCurlError, WrappedError, map_deserialization_error}};
-
+use crate::{
+    apis::*,
+    error::{map_deserialization_error, ProxyCurlError, WrappedError},
+};
 
 pub struct Client {
     http_client: reqwest::Client,
@@ -28,7 +30,6 @@ impl Client {
     pub fn new() -> Self {
         Self::default()
     }
-
 
     pub fn with_api_key(mut self, api_key: &str) -> Self {
         self.api_key = api_key.to_string();
@@ -70,9 +71,13 @@ impl Client {
     pub fn people(&self) -> people::People {
         people::People::new(self)
     }
-    
+
     /// Make a GET request to {path} and deserialize the response body
-    pub(crate) async fn get<O>(&self, path: &str, query: Option<&[(&str,String)]>) -> Result<O, ProxyCurlError>
+    pub(crate) async fn get<O>(
+        &self,
+        path: &str,
+        query: Option<&[(&str, String)]>,
+    ) -> Result<O, ProxyCurlError>
     where
         O: DeserializeOwned,
     {
@@ -84,7 +89,6 @@ impl Client {
         if let Some(query) = query {
             request = request.query(query);
         }
-
 
         let request = request.build()?;
 

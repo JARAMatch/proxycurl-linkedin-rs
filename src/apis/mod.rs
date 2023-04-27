@@ -1,8 +1,8 @@
-mod meta;
-mod reveal;
-mod search;
-mod school;
-mod contact;
 mod company;
+mod contact;
 mod jobs;
+mod meta;
 pub mod people;
+mod reveal;
+mod school;
+mod search;

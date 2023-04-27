@@ -2,7 +2,7 @@
 
 rust crate for interacting with the proxycurl LinkedIn API, not feature-complete
 
-https://nubela.co/proxycurl/docs?shell#overview
+<https://nubela.co/proxycurl/docs?shell#overview>
 
 currently only supports the endpoints we actually use at Jara, sorry for the inconvenience.
 

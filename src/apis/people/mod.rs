@@ -1,4 +1,7 @@
-use crate::{types::{PersonalProfileResponse, PersonProfileRequest}, error::ProxyCurlError};
+use crate::{
+    error::ProxyCurlError,
+    types::{PersonProfileRequest, PersonalProfileResponse},
+};
 
 pub mod person_profile;
 
@@ -12,7 +15,10 @@ impl<'c> People<'c> {
     }
 
     /// Get structured data of a Personal Profile
-    pub async fn person_profile(&self, request: PersonProfileRequest) -> Result<PersonalProfileResponse, ProxyCurlError> {
+    pub async fn person_profile(
+        &self,
+        request: PersonProfileRequest,
+    ) -> Result<PersonalProfileResponse, ProxyCurlError> {
         let mut query = vec![
             ("url", request.url),
             ("fallback_to_cache", request.fallback_to_cache.to_string()),
@@ -35,7 +41,10 @@ impl<'c> People<'c> {
         }
 
         if let Some(personal_contact_number) = request.personal_contact_number {
-            query.push(("personal_contact_number", personal_contact_number.to_string()));
+            query.push((
+                "personal_contact_number",
+                personal_contact_number.to_string(),
+            ));
         }
 
         if let Some(twitter_profile_id) = request.twitter_profile_id {
@@ -53,10 +62,9 @@ impl<'c> People<'c> {
         if let Some(extra) = request.extra {
             query.push(("extra", extra.to_string()));
         }
-        
-        self.client.get(
-            "/proxycurl/api/v2/linkedin",
-            Some(query.as_slice()),
-        ).await
+
+        self.client
+            .get("/proxycurl/api/v2/linkedin", Some(query.as_slice()))
+            .await
     }
 }
